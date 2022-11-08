@@ -7,7 +7,7 @@ let absolutePath=__dirname + '/views/index.html';
 /* app.get('/',function(req,res){
     res.sendFile(absolutePath)
 });*/
-app.get('/',function(req,res){
+app.get('/json',function(req,res){
     res.json({"message": "Hello json"})
 });
 
