@@ -14,8 +14,8 @@ app.get('/',function(req,res){
 let obj={"message": "Hello json"};
 app.get("/json",function(req,res){
     res.json(obj)
-       .process.env.MESSAGE_STYLE;
-});
+       .process.env.MESSAGE_STYLE});
+   
 
 
 
