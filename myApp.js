@@ -14,7 +14,8 @@ app.get('/',function(req,res){
 
 let obj={"message": "Hello json"};
 app.get("/json",function(req,res){
-    res.json(obj.toUpperCase())});
+    res.json(obj)
+       .toUpperCase()});
    
 
 
