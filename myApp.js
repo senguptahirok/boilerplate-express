@@ -1,5 +1,6 @@
 let express = require('express');
 let app = express();
+require('dotenv').config();
 console.log("Hello World");
 
 let path01=__dirname + '/public';
@@ -12,7 +13,9 @@ app.get('/',function(req,res){
 
 let obj={"message": "Hello json"};
 app.get("/json",function(req,res){
-    res.json(obj);
+    let msg_style = process.env.MESSAGE_STYLE;
+    console.log(msg_style);
+    res.json(msg_style(obj));
 });
 
 
