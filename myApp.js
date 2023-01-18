@@ -12,10 +12,10 @@ app.get('/',function(req,res){
     res.sendFile(absolutePath)
 });
 
-let obj={"message": "Hello json"};
+let obj={message: "Hello json"};
 app.get("/json",function(req,res){
     if (process.env.MESSAGE_STYLE === 'uppercase')
-      obj['message']=obj['message'].toUpperCase();
+      obj[message]=obj[message].toUpperCase();
 
     res.json(obj)});
 
