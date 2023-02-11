@@ -8,17 +8,21 @@ let path01=__dirname + '/public';
 app.use('/public',express.static(path01));
 
 let absolutePath=__dirname + '/views/index.html';
-app.get('/',function(req,res){
-    res.sendFile(absolutePath)
+app.get('/',function(req,res,next){
+    console.log(req.method+' '+req.path+' -'+req.ip);
+    res.sendFile(absolutePath);
+    next();
 });
 
 let obj={'message': "Hello json"};
-app.get("/json",function(req,res){
+app.get("/json",function(req,res,next){
     const MESSAGE_STYLE = process.env['MESSAGE_STYLE'];
     if (MESSAGE_STYLE === 'uppercase')
       obj['message'] = obj['message'].toUpperCase();
-
-    res.json(obj)});
+    
+    console.log(req.method+' '+req.path+' -'+req.ip);
+    res.json(obj);
+    next();});
 
 
 
