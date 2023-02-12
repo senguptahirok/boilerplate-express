@@ -1,16 +1,16 @@
 let express = require('express');
 let app = express();
 require('dotenv').config();
-console.log("Hello World");
-console.log(process.env.MESSAGE_STYLE);
-
-let path01=__dirname + '/public';
-app.use('/public',express.static(path01));
+/* console.log("Hello World"); */
+console.log(process.env.MESSAGE_STYLE); 
 
 app.use(function(req,res,next){
   console.log(req.method + ' ' + req.path +' -' + req.ip);
   next();
 });
+
+let path01=__dirname + '/public';
+app.use('/public',express.static(path01));
 
 let absolutePath=__dirname + '/views/index.html';
 app.get('/',function(req,res){
