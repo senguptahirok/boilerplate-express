@@ -23,11 +23,11 @@ app.get("/json",function(req,res){
       obj['message'] = obj['message'].toUpperCase();
     res.json(obj);});
 
-let obj_time = {'time': ''};
+let obj_time = {time: ''};
 app.get('/now',function(req,res,next){
   req.time = new Date().toString();
   console.log('time = ' + req.time);
-  obj_time['time'] = req.time;
+  obj_time[time] = req.time;
   next();}, function(req,res){
     res.json(obj_time);});
 
