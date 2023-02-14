@@ -5,7 +5,7 @@ require('dotenv').config();
 console.log(process.env.MESSAGE_STYLE); 
 
 app.use(function(req,res,next){
-  console.log(req.method + ' ' + req.path +' -' + req.ip);
+  console.log(req.method + ' ' + req.path +' - ' + req.ip);
   next();
 });
 
