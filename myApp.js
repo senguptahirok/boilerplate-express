@@ -23,13 +23,12 @@ app.get("/json",function(req,res){
       obj['message'] = obj['message'].toUpperCase();
     res.json(obj);});
 
-let obj_time = {};
+let obj_time = {time: ''};
 app.get('/now',function(req,res,next){
   req.time = new Date().toString();
   console.log('time = ' + req.time);
   next();}, function(req,res){
   obj_time[time] = req.time;
-  res.json(obj_time);
-});
+  res.json(obj_time);});
 
  module.exports = app;
