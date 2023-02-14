@@ -24,12 +24,12 @@ app.get("/json",function(req,res){
     res.json(obj);});
 
 let obj_time = {};
-app.get('/now',function(req,res,next){
+app.get('/json',function(req,res,next){
   req.time = new Date().toString();
   console.log('time = ' + req.time);
   next();}, function(req,res){
-  obj[time] = req.time;
-  res.send(obj);
+  obj_time[time] = req.time;
+  res.json(obj_time);
 });
 
  module.exports = app;
