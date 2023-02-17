@@ -27,7 +27,7 @@ app.get('/now', function(req,res,next){
   req.time = new Date().toString();
   console.log('time = ' + req.time);
   next();}, function(req,res){
-    res.json({time: req.time});})    
+    res.send({time: req.time});});    
 
     
 module.exports = app;
