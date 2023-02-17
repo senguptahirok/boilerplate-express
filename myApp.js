@@ -9,12 +9,6 @@ app.use(function(req,res,next){
   next();
 });
 
-app.get('/now', function(req,res,next){
-  req.time = new Date().toString();
-  console.log('time = ' + req.time);
-  next();}, function(req,res){
-    res.json({time: req.time});})
-
 let path01=__dirname + '/public';
 app.use('/public',express.static(path01));
 
@@ -29,11 +23,11 @@ app.get("/json",function(req,res){
       obj['message'] = obj['message'].toUpperCase();
     res.json(obj);});
 
-let obj_friend={'message': "Hello Joel"};
-app.get("/friend",function(req,res){
-    const MESSAGE_STYLE = process.env['MESSAGE_STYLE'];
-    if (MESSAGE_STYLE === 'uppercase')
-       obj_friend['message'] = obj_friend['message'].toUpperCase();
-    res.json(obj_friend);});        
+app.get('/now', function(req,res,next){
+  req.time = new Date().toString();
+  console.log('time = ' + req.time);
+  next();}, function(req,res){
+    res.json({time: req.time});})    
 
+    
 module.exports = app;
