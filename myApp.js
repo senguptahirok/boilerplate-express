@@ -33,7 +33,7 @@ let echoObj = {};
 app.get('/:word/echo',function(req,res){
   console.log('req.params = ' + req.params.word);
   echoObj['echo'] = req.params.word;
-  console.log('echo = ' + echoObj);
+  console.log('echo = ' + echoObj['echo']);
   res.json(echoObj);
 });
 
