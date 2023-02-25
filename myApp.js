@@ -29,10 +29,13 @@ app.get('/now', function(req,res,next){
   next();}, function(req,res){
     res.send({time: req.time});});    
 
-app.get('/employee/:employeeId',function(req,res){
-  console.log('req.params object = ' + req.params);
-  res.json(req.params);
-})
+let echoObj = {};    
+app.get('/:word/echo',function(req,res){
+  console.log('req.params = ' + req.params.word);
+  echoObj['echo'] = req.params.word;
+  console.log('echo = ' + echoObj);
+  res.json(echoObj);
+});
 
     
 module.exports = app;
