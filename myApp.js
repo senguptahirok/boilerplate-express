@@ -29,5 +29,10 @@ app.get('/now', function(req,res,next){
   next();}, function(req,res){
     res.send({time: req.time});});    
 
+app.get('/:word/echo',function(req,res){
+  console.log('req.params object = ' + req.params);
+  res.json(req.params);
+})
+
     
 module.exports = app;
