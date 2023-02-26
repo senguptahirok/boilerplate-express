@@ -40,7 +40,7 @@ app.get('/:word/echo',function(req,res){
 let nameObj = {};
 app.get('/name',function(req,res){
   nameObj['name'] = req.query['firstname'] + ' ' + req.query['last name'];
-  res,json(nameObj);
+  res.json(nameObj);
 });
     
 module.exports = app;
