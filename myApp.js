@@ -37,5 +37,10 @@ app.get('/:word/echo',function(req,res){
   res.json(echoObj);
 });
 
+let nameObj = {};
+app.get('/name',function(req,res){
+  nameObj['name'] = req.query['firstname'] + ' ' + req.query['last name'];
+  res,json(nameObj);
+});
     
 module.exports = app;
