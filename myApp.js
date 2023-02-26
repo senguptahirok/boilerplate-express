@@ -38,10 +38,14 @@ app.get('/:word/echo',function(req,res){
 });
 
 let nameObj = {};
-app.get('/name',function(req,res){
-  //nameObj['name'] = req.query['first'] + ' ' + req.query['last'];
-  nameObj['name'] = app.route('/name').get(handler).post(handler);
+/*app.get('/name',function(req,res){
+  nameObj['name'] = req.query['first'] + ' ' + req.query['last'];
   res.json(nameObj);
 });
+*/
+let handler = function(req,res){
+  res.json(nameObj);
+}
+app.route('/name').get(handler).post(handler);
     
 module.exports = app;
