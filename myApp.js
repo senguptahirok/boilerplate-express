@@ -40,7 +40,7 @@ app.get('/:word/echo',function(req,res){
 let nameObj = {};
 app.get('/name',function(req,res){
   //nameObj['name'] = req.query['first'] + ' ' + req.query['last'];
-  nameObj['name'] = app.route(path).get(handler).post(handler);
+  nameObj['name'] = app.route('/name').get(handler).post(handler);
   res.json(nameObj);
 });
     
