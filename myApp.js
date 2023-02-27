@@ -45,7 +45,9 @@ let nameObj = {};
 */
 let handler = function(req,res){
   console.log(req.query);
-  nameObj = req.query;
+  nameObj['name'] = Object.keys(req.query).map(function(a){
+    return req.query[a];
+  });
   res.json(nameObj);
 }
 app.route('/name').get(handler).post(handler);
