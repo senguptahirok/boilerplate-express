@@ -45,8 +45,8 @@ let nameObj = {};
 */
 let handler = function(req,res){
   console.log(req.query);
-  nameObj['name'] = Object.keys(req.query).reduce(function(accum,a){
-    accum += req.query[a];
+  nameObj['name'] = Object.values(req.query).reduce(function(accum,a){
+    accum = accum + ' ' + a;
     return accum;});
   res.json(nameObj);
 }
