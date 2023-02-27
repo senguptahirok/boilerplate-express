@@ -44,6 +44,8 @@ let nameObj = {};
 });
 */
 let handler = function(req,res){
+  console.log(req.query);
+  nameObj = req.query;
   res.json(nameObj);
 }
 app.route('/name').get(handler).post(handler);
