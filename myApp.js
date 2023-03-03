@@ -12,8 +12,6 @@ app.use(function(req,res,next){
   next();
 });
 
-app.use(URL_encoded_body);
-
 let path01=__dirname + '/public';
 app.use('/public',express.static(path01));
 
@@ -48,21 +46,25 @@ let nameObj = {};
   res.json(nameObj);
 });
 */
-/*let handler = function(req,res){
+let handler = function(req,res){
   console.log(req.query);
   nameObj['name'] = Object.values(req.query).reduce(function(accum,a){
     accum = accum + ' ' + a;
     return accum;});
   res.json(nameObj);
 }
-*/
-let handler = function(req,res){
+app.route('/name').get(handler).post(handler);
+
+let path02 = __dirname + '/name';
+app.use(URL_encoded_body);
+
+let handler01 = function(req,res){
   console.log('req.body = ' + req.body);
   nameObj['name'] = Object.values(req.body).reduce(function(accum,a){
     accum = accum + ' ' + a;
     return accum;});
   res.json(nameObj);
 }
-app.route('/name').get(handler).post(handler);
+app.route('/name').get(handler01).post(handler01);
     
 module.exports = app;
