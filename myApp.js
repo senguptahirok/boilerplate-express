@@ -1,13 +1,16 @@
 let express = require('express');
+let bodyParser = require('body-parser');
 let app = express();
 require('dotenv').config();
+
 /* console.log("Hello World"); */
 console.log(process.env.MESSAGE_STYLE); 
 
+let URL_encoded_data = bodyParser.urlencoded({extended: false});
 app.use(function(req,res,next){
   console.log(req.method + ' ' + req.path +' - ' + req.ip);
   next();
-});
+},URL_encoded_data);
 
 let path01=__dirname + '/public';
 app.use('/public',express.static(path01));
