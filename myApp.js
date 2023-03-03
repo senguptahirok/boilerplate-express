@@ -47,7 +47,7 @@ let nameObj = {};
 });
 */
 let handler = function(req,res){
-  console.log(req.query);
+  console.log('req.query = ' + req.query);
   nameObj['name'] = Object.values(req.query).reduce(function(accum,a){
     accum = accum + ' ' + a;
     return accum;});
