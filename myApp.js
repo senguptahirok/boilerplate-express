@@ -6,12 +6,12 @@ require('dotenv').config();
 /* console.log("Hello World"); */
 console.log(process.env.MESSAGE_STYLE); 
 
-let URL_encoded_data = bodyParser.urlencoded({extended: false});
+let URL_encoded_body = bodyParser.urlencoded({extended: false});
 app.use(function(req,res,next){
   console.log(req.method + ' ' + req.path +' - ' + req.ip);
   console.log('data received in the request = ' + req.body);
   next();
-},URL_encoded_data);
+},URL_encoded_body);
 
 let path01=__dirname + '/public';
 app.use('/public',express.static(path01));
