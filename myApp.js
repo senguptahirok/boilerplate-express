@@ -46,6 +46,7 @@ let nameObj = {};
   res.json(nameObj);
 });
 */
+/*
 let handler = function(req,res){
   console.log(req.query);
   nameObj['name'] = Object.values(req.query).reduce(function(accum,a){
@@ -54,8 +55,9 @@ let handler = function(req,res){
   res.json(nameObj);
 }
 app.route('/name').get(handler).post(handler);
-
-let path02 = __dirname + '/name';
+*/
+/*let path02 = __dirname + '/name'; */
+console.log('URL_encoded_body = ' + URL_encoded_body);
 app.use(URL_encoded_body);
 
 let handler01 = function(req,res){
