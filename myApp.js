@@ -9,7 +9,6 @@ console.log(process.env.MESSAGE_STYLE);
 let URL_encoded_body = bodyParser.urlencoded({extended: false});
 app.use(function(req,res,next){
   console.log(req.method + ' ' + req.path +' - ' + req.ip);
-  console.log('data received in the request = ' + req.body);
   next();
 },URL_encoded_body);
 
@@ -47,9 +46,17 @@ let nameObj = {};
   res.json(nameObj);
 });
 */
-let handler = function(req,res){
+/*let handler = function(req,res){
   console.log(req.query);
   nameObj['name'] = Object.values(req.query).reduce(function(accum,a){
+    accum = accum + ' ' + a;
+    return accum;});
+  res.json(nameObj);
+}
+*/
+let handler = function(req,res){
+  console.log('req.body = ' + req.body);
+  nameObj['name'] = Object.values(req.body).reduce(function(accum,a){
     accum = accum + ' ' + a;
     return accum;});
   res.json(nameObj);
