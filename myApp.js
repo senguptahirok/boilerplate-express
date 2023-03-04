@@ -6,8 +6,8 @@ require('dotenv').config();
 /* console.log("Hello World"); */
 console.log(process.env.MESSAGE_STYLE); 
 
-let URL_encoded_body = bodyParser.urlencoded({extended: false});
-console.log('URL_encoded_body = ' + URL_encoded_body);
+/* let URL_encoded_body = bodyParser.urlencoded({extended: false}); */
+console.log('URL_encoded_body = ' + bodyParser.urlencoded({extended: false}));
 app.use(function(req,res,next){
   console.log(req.method + ' ' + req.path +' - ' + req.ip);
   next();
