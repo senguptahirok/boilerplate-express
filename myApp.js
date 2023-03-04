@@ -6,8 +6,8 @@ require('dotenv').config();
 /* console.log("Hello World"); */
 console.log(process.env.MESSAGE_STYLE); 
 
-/* let URL_encoded_body = bodyParser.urlencoded({extended: false}); */
-console.log('URL_encoded_body = ' + bodyParser.urlencoded({extended: false}));
+let URL_encoded_body = bodyParser.urlencoded({extended: false});
+console.log('URL_encoded_body = ' + URL_encoded_body);
 app.use(function(req,res,next){
   console.log(req.method + ' ' + req.path +' - ' + req.ip);
   next();
@@ -59,7 +59,7 @@ app.route('/name').get(handler).post(handler);
 */
 /*let path02 = __dirname + '/name'; */
 /* console.log('URL_encoded_body = ' + URL_encoded_body); */
-app.use(URL_encoded_body);
+app.use(bodyParser.urlencoded({extended: false}));
 
 let handler01 = function(req,res){
   console.log('req.body = ' + req.body);
