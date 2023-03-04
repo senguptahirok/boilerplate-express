@@ -44,11 +44,12 @@ app.get('/:word/echo',function(req,res){
 });
 
 let nameObj = {};
+/*
 app.get('/name',function(req,res){
   nameObj['name'] = req.query['first'] + ' ' + req.query['last'];
   res.json(nameObj);
 });
-
+*/
 let handler = function(req,res){
   console.log(req.query);
   nameObj['name'] = Object.values(req.query).reduce(function(accum,a){
