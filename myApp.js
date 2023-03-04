@@ -44,7 +44,7 @@ app.get('/:word/echo',function(req,res){
   res.json(echoObj);
 });
 
-let nameObj = {};
+let nameObj01 = {};
 /*
 app.get('/name',function(req,res){
   nameObj['name'] = req.query['first'] + ' ' + req.query['last'];
@@ -53,14 +53,14 @@ app.get('/name',function(req,res){
 */
 let handler = function(req,res){
   console.log(req.query);
-  nameObj['name'] = Object.values(req.query).reduce(function(accum,a){
+  nameObj01['name01'] = Object.values(req.query).reduce(function(accum,a){
     accum = accum + ' ' + a;
     return accum;});
-  res.json(nameObj);
+  res.json(nameObj01);
 }
-app.route('/name').get(handler).post(handler);
+app.route('/name01').get(handler).post(handler);
 
-let nameObj01 = {};
+let nameObj = {};
 /*
 app.post('/name',function(req,res){
   nameObj01['name'] = req.body['first'] + ' ' + req.body['last'];
@@ -69,10 +69,10 @@ app.post('/name',function(req,res){
 */
 app.post('/name',function(req,res){
   console.log('req body = ' + req.body);
-  nameObj01['name'] = Object.values(req.body).reduce(function(accum,a){
+  nameObj['name'] = Object.values(req.body).reduce(function(accum,a){
     accum = accum + ' ' + a;
     return accum;});
-    res.json(nameObj01);
+    res.json(nameObj);
 });
 /*
 let handler01 = function(req,res){
