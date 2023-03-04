@@ -7,6 +7,7 @@ require('dotenv').config();
 console.log(process.env.MESSAGE_STYLE); 
 
 let URL_encoded_body = bodyParser.urlencoded({extended: false});
+console.log('URL_encoded_body = ' + URL_encoded_body);
 app.use(function(req,res,next){
   console.log(req.method + ' ' + req.path +' - ' + req.ip);
   next();
@@ -57,7 +58,7 @@ let handler = function(req,res){
 app.route('/name').get(handler).post(handler);
 */
 /*let path02 = __dirname + '/name'; */
-console.log('URL_encoded_body = ' + URL_encoded_body);
+/* console.log('URL_encoded_body = ' + URL_encoded_body); */
 app.use(URL_encoded_body);
 
 let handler01 = function(req,res){
