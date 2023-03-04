@@ -1,21 +1,20 @@
+let bodyParser = require('body-parser');
 let express = require('express');
 let app = express();
 require('dotenv').config();
 
-let bodyParser = require('body-parser');
-
 console.log(" **** bp express starts here ****"); 
 console.log(process.env.MESSAGE_STYLE); 
-
-app.use(function(req,res,next){
-  console.log(req.method + ' ' + req.path +' - ' + req.ip);
-  next();
-});
 
 console.log('bodyParser = ' + bodyParser);
 app.use(bodyParser.urlencoded({extended: false}));
 let URL_encoded_body = bodyParser.urlencoded({extended: false});
 console.log('URL_encoded_body = ' + URL_encoded_body);
+
+app.use(function(req,res,next){
+  console.log(req.method + ' ' + req.path +' - ' + req.ip);
+  next();
+});
 
 let path01=__dirname + '/public';
 app.use('/public',express.static(path01));
@@ -68,7 +67,6 @@ app.post('/name',function(req,res){
   res.json(nameObj01);
 });
 */
-
 app.post('/name',function(req,res){
   console.log('req body = ' + req.body);
   nameObj01['name'] = Object.values(req.body).reduce(function(accum,a){
@@ -76,7 +74,6 @@ app.post('/name',function(req,res){
     return accum;});
     res.json(nameObj01);
 });
-
 /*
 let handler01 = function(req,res){
   console.log('req.body = ' + req.body);
