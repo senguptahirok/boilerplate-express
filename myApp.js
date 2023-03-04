@@ -11,7 +11,7 @@ app.use(function(req,res,next){
   next();
 });
 
-app.use('/home',bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: false}));
 let URL_encoded_body = bodyParser.urlencoded({extended: false});
 console.log('URL_encoded_body = ' + URL_encoded_body);
 
@@ -66,6 +66,6 @@ let handler01 = function(req,res){
     return accum;});
   res.json(nameObj01);
 }
-app.route('/name').get(handler01).post(handler01);
+app.route('/name').post(handler01);
     
 module.exports = app;
