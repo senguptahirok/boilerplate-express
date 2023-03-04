@@ -1,8 +1,9 @@
 let express = require('express');
-let bodyParser01 = require('body-parser');
-let bodyParser = bodyParser01();
 let app = express();
 require('dotenv').config();
+
+let bodyParser01 = require('body-parser');
+let bodyParser = bodyParser01();
 
 console.log(" **** bp express starts here ****"); 
 console.log(process.env.MESSAGE_STYLE); 
