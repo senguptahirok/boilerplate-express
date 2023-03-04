@@ -6,12 +6,14 @@ require('dotenv').config();
 /* console.log("Hello World"); */
 console.log(process.env.MESSAGE_STYLE); 
 
-let URL_encoded_body = bodyParser.urlencoded({extended: false});
-console.log('URL_encoded_body = ' + URL_encoded_body);
 app.use(function(req,res,next){
   console.log(req.method + ' ' + req.path +' - ' + req.ip);
   next();
 });
+
+app.use('/home',bodyParser.urlencoded({extended: false}));
+let URL_encoded_body = bodyParser.urlencoded({extended: false});
+console.log('URL_encoded_body = ' + URL_encoded_body);
 
 let path01=__dirname + '/public';
 app.use('/public',express.static(path01));
@@ -42,12 +44,11 @@ app.get('/:word/echo',function(req,res){
 });
 
 let nameObj = {};
-/*app.get('/name',function(req,res){
+app.get('/name',function(req,res){
   nameObj['name'] = req.query['first'] + ' ' + req.query['last'];
   res.json(nameObj);
 });
-*/
-/*
+
 let handler = function(req,res){
   console.log(req.query);
   nameObj['name'] = Object.values(req.query).reduce(function(accum,a){
@@ -56,17 +57,14 @@ let handler = function(req,res){
   res.json(nameObj);
 }
 app.route('/name').get(handler).post(handler);
-*/
-/*let path02 = __dirname + '/name'; */
-/* console.log('URL_encoded_body = ' + URL_encoded_body); */
-app.use(bodyParser.urlencoded({extended: false}));
 
+let nameObj01 = {};
 let handler01 = function(req,res){
   console.log('req.body = ' + req.body);
-  nameObj['name'] = Object.values(req.body).reduce(function(accum,a){
+  nameObj01['name'] = Object.values(req.body).reduce(function(accum,a){
     accum = accum + ' ' + a;
     return accum;});
-  res.json(nameObj);
+  res.json(nameObj01);
 }
 app.route('/name').get(handler01).post(handler01);
     
