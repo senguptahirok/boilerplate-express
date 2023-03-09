@@ -8,8 +8,8 @@ console.log(process.env.MESSAGE_STYLE);
 
 console.log('bodyParser = ' + bodyParser);
 app.use(bodyParser.urlencoded({extended: false}));
-let URL_encoded_body = bodyParser.urlencoded({extended: false});
-console.log('URL_encoded_body = ' + URL_encoded_body);
+let urlEncodedBody = bodyParser.urlencoded({extended: false});
+console.log('urlEncodedBody = ' + urlEncodedBody);
 
 app.use(function(req,res,next){
   console.log(req.method + ' ' + req.path +' - ' + req.ip);
@@ -67,13 +67,13 @@ app.post('/name',function(req,res){
   res.json(nameObj01);
 });
 */
-app.post('/name',URL_encoded_body, function(req,res){
+app.post('/name',urlEncodedBody, function(req,res){
   console.log(' **** in app.post/name ****');
   console.log('req body = ' + req.body);
   nameObj['name'] = Object.values(req.body).reduce(function(accum,a){
     accum = accum + ' ' + a;
     return accum;});
-    res.json(nameObj);
+    res.send(nameObj);
 });
 /*
 let handler01 = function(req,res){
