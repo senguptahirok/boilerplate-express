@@ -67,7 +67,7 @@ app.post('/name',function(req,res){
   res.json(nameObj01);
 });
 */
-app.post('/name',function(req,res){
+app.post('/name',URL_encoded_body, function(req,res){
   console.log(' **** in app.post/name ****');
   console.log('req body = ' + req.body);
   nameObj['name'] = Object.values(req.body).reduce(function(accum,a){
