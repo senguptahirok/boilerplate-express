@@ -69,7 +69,7 @@ app.post('/name',function(req,res){
 */
 app.post('/name', function(req,res){
   console.log(' **** in app.post/name ****');
-  console.log('req _body = ' + req._body);
+//  console.log('req _body = ' + req._body);
   nameObj['name'] = Object.values(req.body).reduce(function(accum,a){
     accum = accum + ' ' + a;
     return accum;});
