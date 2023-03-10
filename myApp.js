@@ -1,4 +1,4 @@
-let bodyParser = require('body-parser');
+let bodyParser = require('~/node_modules/body-parser');
 let express = require('express');
 let app = express();
 require('dotenv').config();
@@ -7,7 +7,7 @@ console.log(" **** bp express starts here ****");
 console.log(process.env.MESSAGE_STYLE); 
 
 console.log('bodyParser = ' + bodyParser);
-app.use(express.bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: false}));
 let urlEncodedBody = bodyParser.urlencoded({extended: false});
 console.log('urlEncodedBody = ' + urlEncodedBody);
 
@@ -73,7 +73,7 @@ app.post('/name', function(req,res){
   nameObj['name'] = Object.values(req.body).reduce(function(accum,a){
     accum = accum + ' ' + a;
     return accum;});
-    res.json(nameObj);
+  res.json(nameObj);
 });
 /*
 let handler01 = function(req,res){
