@@ -7,7 +7,7 @@ console.log(" **** bp express starts here ****");
 console.log(process.env.MESSAGE_STYLE); 
 
 console.log('bodyParser = ' + bodyParser);
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.bodyParser.urlencoded({extended: false}));
 let urlEncodedBody = bodyParser.urlencoded({extended: false});
 console.log('urlEncodedBody = ' + urlEncodedBody);
 
